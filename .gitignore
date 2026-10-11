@@ -1,0 +1,4 @@
+# Git distribution ignore
+.DS_Store
+Thumbs.db
+*.log
