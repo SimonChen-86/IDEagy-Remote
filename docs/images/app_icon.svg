@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <defs>
+    <!-- 深邃暗夜背景渐变 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1123" />
+      <stop offset="50%" stop-color="#090b16" />
+      <stop offset="100%" stop-color="#05060d" />
+    </linearGradient>
+
+    <!-- 边框发光渐变 (幻影紫到电光靛蓝) -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#a855f7" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- 星芒外层光晕渐变 -->
+    <linearGradient id="starGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff" />
+      <stop offset="45%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- 星芒核心晶体纯白高光渐变 -->
+    <linearGradient id="starCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#fdf4ff" />
+      <stop offset="100%" stop-color="#e9d5ff" />
+    </linearGradient>
+
+    <!-- 柔和星云辉光滤镜 -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- 1. 外层 Squircle 现代圆角矩形底板 -->
+  <rect x="8" y="8" width="240" height="240" rx="58" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="4.5" />
+
+  <!-- 2. 精致内嵌微发光线条 -->
+  <rect x="15" y="15" width="226" height="226" rx="51" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-opacity="0.25" />
+
+  <!-- 3. 背景核心辐射星云 -->
+  <circle cx="128" cy="128" r="54" fill="#9333ea" opacity="0.32" filter="url(#softGlow)" />
+
+  <!-- 4. 辅助星芒粒子 (经典的 Sparkles 灵动双星) -->
+  <path d="M194 66 Q194 76 204 76 Q194 76 194 86 Q194 76 184 76 Q194 76 194 66 Z" fill="url(#starGlow)" opacity="0.9" />
+  <path d="M62 176 Q62 184 70 184 Q62 184 62 192 Q62 184 54 184 Q62 184 62 176 Z" fill="url(#starGlow)" opacity="0.8" />
+
+  <!-- 5. 主星芒外发光外轮廓 (AI 4芒星，平滑内凹贝塞尔曲线) -->
+  <path d="M128 34 Q128 100 194 128 Q128 156 128 222 Q128 156 62 128 Q128 100 128 34 Z" fill="url(#starGlow)" filter="url(#softGlow)" opacity="0.45" />
+
+  <!-- 6. 主星芒次层晶体结构 (紫色渐变骨架) -->
+  <path d="M128 44 Q128 102 184 128 Q128 154 128 212 Q128 154 72 128 Q128 102 128 44 Z" fill="url(#starGlow)" />
+
+  <!-- 7. 主星芒中央璀璨高光核心 (晶莹纯白) -->
+  <path d="M128 64 Q128 112 168 128 Q128 144 128 192 Q128 144 88 128 Q128 112 128 64 Z" fill="url(#starCore)" />
+</svg>
